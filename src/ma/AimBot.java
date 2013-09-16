@@ -13,6 +13,7 @@ public class AimBot extends Robot
 	{
 		while(true)
 		{
+			System.out.println("Test");
 			controlGun();
 		}
 	}
@@ -24,25 +25,19 @@ public class AimBot extends Robot
 		onAim = true;
 		timeSinceAim = 0;
 		angleOnHit = getRadarHeading();
+		scan();
 	}
 	
 	public void controlGun()
 	{
-		if(noHitYet)
-		{
-			turnGunRight(10);
-			return;
-		}
+		turnGunRight(100);
+		scan();
 		timeSinceAim += 1;
 		if(onAim)
 		{
+			scan();
+			onAim = false;
 			return;
-		}
-		if(timeSinceAim % 2 == 0)
-		{
-			turnGunRight( (angleOnHit-getRadarHeading()) + timeSinceAim);
-		} else {
-			turnGunLeft( (angleOnHit-getRadarHeading()) + timeSinceAim);
 		}
 		onAim = false;
 	}
