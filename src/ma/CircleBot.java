@@ -2,11 +2,9 @@ package ma;
 
 import robocode.Robot;
 import robocode.ScannedRobotEvent;
-import java.awt.Color;
 
 public class CircleBot extends Robot 
 {
-	private int time;
 	private boolean seen = false;
 
 	/*public CircleBot()
